@@ -22,24 +22,55 @@
 
   .buttoncontainer {
     position: relative;
-    width: 50%;
+    width: 100%;
   }
   /* Style the button and place it in the middle of the container/image */
   .buttoncontainer .btn {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
+    top: 85%;
+    left: 15%;
+    transform: translate(-85%, -15%);
+    -ms-transform: translate(-85%, -15%);
     color: black;
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 46px;
+    /*padding: 12px 24px;*/
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
   }
 
+  .heart {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+    background-position: 0 0;
+
+    cursor: pointer;
+    animation: fave-heart 1s steps(28);
+  }
+
+  .heart.checked {
+    background-position: -2800px 0;
+  }
+  .heart.unchecked {
+    background-position: 0 0;
+  }
+  .heart:hover {
+    background-position: -2800px 0;
+    transition: background 1s steps(28);
+  }
+  @keyframes fave-heart {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -2800px 0;
+    }
+  }
 
 
   
@@ -86,6 +117,12 @@
     grid-template-rows: auto auto;
     text-align: center;
   }
+.disable-pointer-events {
+  pointer-events:none;  
+}
+.enable-pointer-events {
+  pointer-events:auto;  
+}
   /*
   @media (max-width: 991px) {
     .slider {
