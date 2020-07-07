@@ -25,7 +25,7 @@ SECRET_KEY = '0^046=2k_zvad03wkty0ge))dh(wnqgl7-@9we4shv!i_#v757'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-BASE_URL = 'http://127.0.0.1:8000'
+BASE_URL = 'http://nhrnhr01.pythonanywhere.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 #LANGUAGE_CODE =  'en-us'
-LANGUAGE_CODE =  'he' 
+LANGUAGE_CODE =  'he'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

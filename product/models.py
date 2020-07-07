@@ -11,17 +11,17 @@ import os
 
 class Product(models.Model):
     name = models.CharField(max_length=120, default='', blank=True, null=True, verbose_name=_('name'))
-    image = models.ImageField(upload_to=settings.MEDIA_ROOT, verbose_name='image', default  = (settings.MEDIA_URL + 'default.jpg').replace('/', '\\'))
-    image2 = models.ImageField(upload_to=settings.MEDIA_ROOT, verbose_name='image 2',default= (settings.MEDIA_URL + 'default.jpg').replace('/', '\\'))
+    image = models.ImageField(upload_to='desktop', verbose_name='image', default  = 'default.jpg')
+    image2 = models.ImageField(upload_to='mobile', verbose_name='image 2',default=  'default.jpg')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None)
 
-    
+
     def image_tag(self):
         #print(image)
-        return mark_safe('<img src="%s" width="150" height="150" />' % (self.image.url))
+        return mark_safe('<img src="%s" width="150" height="150" />' % (settings.MEDIA_URL + self.image.name))
 
     def image2_tag(self):
-        return mark_safe('<img src="%s" width="103" height="224" />' % (self.image2.url))
+        return mark_safe('<img src="%s" width="103" height="224" />' % (settings.MEDIA_URL + self.image2.name))
 
     def __str__(self):
         name = ''
